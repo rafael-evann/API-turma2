@@ -11,7 +11,7 @@
     <div id="resposta"></div>
     <form action="" method="post">
         <label for="id":>ID</label>
-        <input type="text" id="id"><br>
+        <input type="text" id="id" disabled><br>
 
         <label for="descricao">Descrição</label>
         <input type="text" id="descricao"><br>
@@ -22,10 +22,9 @@
         <label for="imagem">Imagem</label>
         <input type="text" id="imagem"><br>
 
-        <button type="button" id="btnAtualizar">Atualizar</button>
+        <button type="button" id="btnCadastrar">Cadastrar</button>
         <script>
-            document.querySelector('#btnAtualizar').addEventListener('click', () => {
-                const id = document.querySelector('#id').value;
+            document.querySelector('#btnCadastrar').addEventListener('click', () => {
                 const dados = {
                     'id': null,
                     'descricao': document.querySelector("#descricao").value,
@@ -33,23 +32,23 @@
                     'imagem': document.querySelector('#imagem').value
                 };
 
-                fetch('http://localhost:3000/produtos/$(id)', {
-                    method: 'PUT',
+                fetch('http://localhost:3000/produtos', {
+                    method: 'POST',
                     headers: {
-                        'Contene-type': 'application/json'
+                        'Content-type': 'application/json'
                     },
                     body: JSON.stringify(dados)
                 })
                     .then(response => {
                         if (response.ok) {
                             document.querySelector('#resposta').innerHTML =
-                                'produto atualizado!'
+                                'Produto cadastrado!'
                         }
                     })
                 getProdutos();
             });
             function getProdutos() {
-                const requisicao = new Request('http://localhost:3000/Produtos', {
+                fetch('http://localhost:3000/Produtos', {
                     method: 'GET',
                     headers: {
                         'Content-type': 'application/json'
@@ -58,7 +57,7 @@
                 .then(resposta => resposta.json())
                 .then(resposta => {
 
-                document.querySelector('#listaProdutos').innerHTML="";
+                document.querySelector('#resposta').innerHTML="";
 
                     for (let i = 0; i < resposta.length; i++) {
 
@@ -70,10 +69,9 @@
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
                         ul.appendChild(document.createElement('li')).appendChild (img).setAttribute('src',resposta[i].imagem) ;
 
-                    document.querySelector('#listaProduto').appendChild(ul);
+                    document.querySelector('#resposta').appendChild(ul);
                     }
                 });
-            
             }
         </script>
 </body>

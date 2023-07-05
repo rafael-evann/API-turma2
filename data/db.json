@@ -9,6 +9,30 @@
       "id": 2,
       "descricao": "Sapato Branca",
       "preco": "39.90"
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9,
+      "descricao": "Bochila ",
+      "preco": "19.20",
+      "imagem": "img"
     }
   ]
 }
