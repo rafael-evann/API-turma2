@@ -12,21 +12,19 @@
     <button type="button" id="btnFetch">Fetch</button>
     <div id="resposta"></div>
 
-    <script>
-        const requisicao = new Request('http://localhost:3000/Produtos', {
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/json'
-            }
-        });
+    <div id="listaProdustos">
 
-        document.querySelector('#btnFetch').addEventListener('click', () => {
-
-            fetch(requisicao)
+        <script>
+            fetch('http://localhost:3000/produtos', {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
                 .then(resposta => resposta.json())
                 .then(resposta => {
 
-                document.querySelector('#resposta').innerHTML="";
+                    document.querySelector('#resposta').innerHTML = "";
 
                     for (let i = 0; i < resposta.length; i++) {
 
@@ -36,14 +34,17 @@
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
-                        ul.appendChild(document.createElement('li')).appendChild (img).setAttribute('src',resposta[i].imagem) ;
+                        ul.appendChild(document.createElement('li')).appendChild(img).setAttribute('src', resposta[i].imagem);
 
-                    document.querySelector('#resposta').appendChild(ul);
-                }
-
+                        document.querySelector('#resposta').appendChild(ul);
+                    }
                 });
-        })
-    </script>
+
+            document.querySelector('#btnFetch').addEventListener('click', () => {
+
+
+            })
+        </script>
 </body>
 
 </html>

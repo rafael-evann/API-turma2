@@ -1,5 +1,5 @@
 {
-  "Produtos": [
+  "produtos": [
     {
       "id": 1,
       "descricao": "sapato 1",
@@ -7,32 +7,21 @@
     },
     {
       "id": 2,
-      "descricao": "Sapato Branca",
-      "preco": "39.90"
+      "descricao": "sabão",
+      "preco": "36",
+      "imagem": "img.jég"
     },
     {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9,
-      "descricao": "Bochila ",
+      "id": 3,
+      "descricao": "sabão",
       "preco": "19.20",
-      "imagem": "img"
+      "imagem": "hkdgh"
+    },
+    {
+      "id": 4,
+      "descricao": "sabão",
+      "preco": "19.20",
+      "imagem": "img.jpeg"
     }
   ]
 }

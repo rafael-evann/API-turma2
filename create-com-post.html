@@ -21,7 +21,8 @@
 
         <label for="imagem">Imagem</label>
         <input type="text" id="imagem"><br>
-
+    </form> 
+    
         <button type="button" id="btnCadastrar">Cadastrar</button>
         <script>
             document.querySelector('#btnCadastrar').addEventListener('click', () => {
@@ -48,7 +49,7 @@
                 getProdutos();
             });
             function getProdutos() {
-                fetch('http://localhost:3000/Produtos', {
+                fetch('http://localhost:3000/produtos', {
                     method: 'GET',
                     headers: {
                         'Content-type': 'application/json'
