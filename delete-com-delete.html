@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisição e repostas via API</title>
+</head>
+
+<body>
+    <h1>Delete com DELETE</h1>
+    <div id="resposta"></div>
+
+    <div id="listaProdutos">
+
+    <script src="./assets/scripts/sripts.js"></script>
+        <script>
+
+            document.addEventListener('click', event =>{
+
+                if(event.target.classList.contains('botao-delete')){
+
+                    fetch(`http://localhost:3000/produtos/${event.target.value}`,{
+                        method:'DELETE',
+                        headers:{
+                            'Content-type': 'application/json'
+                        }
+                    })
+                    .then(resposta =>{
+                        if(resposta.ok){
+                            alert('Produto apagado!');
+                            location.reload();
+                        }
+                    })
+                }
+            });
+
+            fetch('http://localhost:3000/produtos/',{
+                method:'GET',
+                headers:{
+                        'Content-type': 'application/json'
+                }
+            })
+                .then(resposta => resposta.json())
+                .then(resposta => {
+
+                    document.querySelector('#listaProdutos').innerHTML ="";
+
+                    for (let i = 0; i < resposta.length; i++) {
+
+                        const ul = document.createElement("ul");
+                        const img = document.createElement('img');
+
+                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
+                        
+                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
+                        
+                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
+                        
+                        ul.appendChild(document.createElement('li')).appendChild(img).setAttribute('src', resposta[i].imagem);
+                        
+                        const liBotao = document.createElement('li');
+
+                        const botao = document.createElement ('button');
+                        botao.type='button';
+                        botao.innerHTML='🐱‍👤';
+                        botao.classList.add('botao-delete');
+                        botao.value = resposta[i].id;
+
+                        ul.appendChild(liBotao).appendChild(botao);
+
+                        document.querySelector('#resposta').appendChild(ul);
+                    }
+                });
+        </script>
+</body>
+
+</html>

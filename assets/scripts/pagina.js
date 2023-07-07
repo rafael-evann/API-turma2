@@ -1,4 +1,6 @@
 const h1 = document.createElement('h1');
+linkStyles.setAttribute('rel', 'stylesheet');
+
 h1.innerHTML = 'MInha página dinânmica';
 h1.setAttribute('id', 'titulo');
 h1.setAttribute('data-test','test-title');
