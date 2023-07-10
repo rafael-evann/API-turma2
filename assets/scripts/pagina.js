@@ -1,6 +1,8 @@
 const h1 = document.createElement('h1');
-linkStyles.setAttribute('rel', 'stylesheet');
 
+const linkStyles=document.createElement('link'); 
+linkStyles.setAttribute('rel', 'stylesheet');
+linkStyles.href='./assets/styles/styles.css';
 h1.innerHTML = 'MInha página dinânmica';
 h1.setAttribute('id', 'titulo');
 h1.setAttribute('data-test','test-title');
@@ -17,3 +19,4 @@ p1.innerHTML ="fdjbvfjgkfbjsdfjgsdgfgbsdfgjkdfgdfçjgbdfjhg,kjdfsg";
 document.body.appendChild(h1);
 document.body.appendChild(h2);
 document.body.appendChild(p1);
+document.head.appendChild(linkStyles);

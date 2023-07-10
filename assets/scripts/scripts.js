@@ -1,6 +1,6 @@
 const linkStyles = document.createElement('link');
 linkStyles.setAttribute('rel', 'stylesheet');
-linkStyles.setAttribute('href', './assets/styles/styles.css');
+linkStyles.setAttribute('href','./assets/styles/styles.css');
 
 document.head.appendChild(linkStyles);
 

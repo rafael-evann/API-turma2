@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualização de produtos</title>
+</head>
+
+<body>
+    <div id="resposta"></div>
+    <form action="" method="post">
+        <label for="id":>ID</label>
+        <input type="text" id="id"><br>
+
+        <label for="descricao">Descrição</label>
+        <input type="text" id="descricao"><br>
+
+        <label for="preco">Preço</label>
+        <input type="text" id="preco"><br>
+
+        <label for="imagem">Imagem</label>
+        <input type="text" id="imagem"><br>
+
+        <button onclick="btnDesativado()" type="button" id="btnAtualizar">Atualizar</button>
+        <button onclick="apagarTexto()" type="button">Limpar</button>
+
+        
+    </form>
+    <div id="listaProdutos"></div>
+        <script>
+
+            function apagarTexto(){
+            const id= document.querySelector('#id');    
+            const descricao= document.querySelector('#descricao');    
+            const preco= document.querySelector('#preco');    
+            const imagem= document.querySelector('#imagem');    
+            id.value='';
+            descricao.value='';
+            preco.value='';
+            imagem.value='';
+            }
+
+            function btnDesativado(){
+                const id= document.querySelector('#id').value
+                    if(id){
+                        document.querySelector('atualizar').disabled=false;
+                        return   
+                    }
+                    document.querySelector('#atualizar').disabled=true;
+            }
+
+            document.querySelector('#btnAtualizar').addEventListener('click', () => {
+                const id = document.querySelector('#id').value;
+                const dados = {
+                    'id': null,
+                    'descricao': document.querySelector("#descricao").value,
+                    'preco': document.querySelector('#preco').value,
+                    'imagem': document.querySelector('#imagem').value
+                };
+
+                fetch(`http://localhost:3000/produtos/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(dados)
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            document.querySelector('#resposta').innerHTML =
+                                'produto atualizado!';
+                        }
+                    })
+                getProdutos();
+            });
+            function getProdutos() {
+                fetch('http://localhost:3000/produtos', {
+                    method: 'GET',
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                })
+                .then(resposta => resposta.json())
+                .then(resposta => {
+
+                document.querySelector('#listaProdutos').innerHTML="";
+
+                    for (let i = 0; i < resposta.length; i++) {
+
+                        const ul = document.createElement("ul");
+                        const img = document.createElement('img');
+
+                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
+                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
+                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
+                        ul.appendChild(document.createElement('li')).appendChild (img).setAttribute('src',resposta[i].imagem) ;
+
+                    document.querySelector('#listaProdutos').appendChild(ul);
+                    }
+                });
+            
+            }
+
+        </script>
+</body>
+
+</html>

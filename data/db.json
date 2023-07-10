@@ -1,22 +1,16 @@
 {
   "produtos": [
     {
-      "id": 2,
-      "descricao": "sabão",
-      "preco": "36",
-      "imagem": "img.jég"
+      "id": 1,
+      "descricao": "Bolsa preta",
+      "preco": "60",
+      "imagem": "olç~jk"
     },
     {
-      "id": 4,
-      "descricao": "sabão",
-      "preco": "19.20",
-      "imagem": "img.jpeg"
-    },
-    {
-      "id": 6,
-      "descricao": "sapato ",
-      "preco": "20",
-      "imagem": "img.png"
+      "id": 3,
+      "descricao": "Mesa ",
+      "preco": "400",
+      "imagem": "./assets/imagens/mesa.jpg"
     }
   ]
 }
