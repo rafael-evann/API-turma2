@@ -10,8 +10,8 @@
 <body>
     <div id="resposta"></div>
     <form action="" method="post">
-        <label for="id":>ID</label>
-        <input type="text" id="id"><br>
+        <label for="id" :>ID</label>
+        <input type="text" id="id" o    ><br>
 
         <label for="descricao">Descrição</label>
         <input type="text" id="descricao"><br>
@@ -23,68 +23,90 @@
         <input type="text" id="imagem"><br>
 
         <button onclick="btnDesativado()" type="button" id="btnAtualizar">Atualizar</button>
-        <button onclick="apagarTexto()" type="button">Limpar</button>
+        <button onclick="apagarTexto()" type="button" id="btnlimpar">Limpar</button>
 
-        
+
     </form>
     <div id="listaProdutos"></div>
-        <script>
+    <script>
 
-            function apagarTexto(){
-            const id= document.querySelector('#id');    
-            const descricao= document.querySelector('#descricao');    
-            const preco= document.querySelector('#preco');    
-            const imagem= document.querySelector('#imagem');    
-            id.value='';
-            descricao.value='';
-            preco.value='';
-            imagem.value='';
+        function checaInputs(){
+
+            const idPreenchido = document.querySelector('input#id').value !=="";            
+            const descricaoPreenchida = document.querySelector('input#descricao').value !=="";
+            
+    
+        }
+        
+
+        document.addEventListene('click',event =>{
+            if(event.target.classList.contains('produto')){
+
+                const elemento = event.target;
+
+                document.querySelector('input#id').value=elementoBase.querySelector('[data-produto="id"]')
+
+
             }
 
-            function btnDesativado(){
-                const id= document.querySelector('#id').value
-                    if(id){
-                        document.querySelector('atualizar').disabled=false;
-                        return   
-                    }
-                    document.querySelector('#atualizar').disabled=true;
+        }
+
+        )
+        function btnDesativado() {
+            const id = document.querySelector('#id').value
+            if (id) {
+                document.querySelector('btnlimpar').disabled = false;
+                return
             }
+            document.querySelector('#btnAtualizar').disabled = true;
+        }
 
-            document.querySelector('#btnAtualizar').addEventListener('click', () => {
-                const id = document.querySelector('#id').value;
-                const dados = {
-                    'id': null,
-                    'descricao': document.querySelector("#descricao").value,
-                    'preco': document.querySelector('#preco').value,
-                    'imagem': document.querySelector('#imagem').value
-                };
+        //Desafio 2 
+        function apagarTexto() {
+            const id = document.querySelector('#id');
+            const descricao = document.querySelector('#descricao');
+            const preco = document.querySelector('#preco');
+            const imagem = document.querySelector('#imagem');
+            id.value = '';
+            descricao.value = '';
+            preco.value = '';
+            imagem.value = '';
+        }
+        document.querySelector('#btnAtualizar').addEventListener('click', () => {
+            const id = document.querySelector('#id').value;
+            const dados = {
+                'id': null,
+                'descricao': document.querySelector("#descricao").value,
+                'preco': document.querySelector('#preco').value,
+                'imagem': document.querySelector('#imagem').value
+            };
 
-                fetch(`http://localhost:3000/produtos/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(dados)
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            document.querySelector('#resposta').innerHTML =
-                                'produto atualizado!';
-                        }
-                    })
-                getProdutos();
-            });
-            function getProdutos() {
-                fetch('http://localhost:3000/produtos', {
-                    method: 'GET',
-                    headers: {
-                        'Content-type': 'application/json'
+            fetch(`http://localhost:3000/produtos/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        document.querySelector('#resposta').innerHTML =
+                            'produto atualizado!';
                     }
                 })
+            getProdutos();
+        });
+        function getProdutos() {
+            fetch('http://localhost:3000/produtos', {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
                 .then(resposta => resposta.json())
                 .then(resposta => {
 
-                document.querySelector('#listaProdutos').innerHTML="";
+                    document.querySelector('#listaProdutos').innerHTML = "";
 
                     for (let i = 0; i < resposta.length; i++) {
 
@@ -94,15 +116,15 @@
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
-                        ul.appendChild(document.createElement('li')).appendChild (img).setAttribute('src',resposta[i].imagem) ;
+                        ul.appendChild(document.createElement('li')).appendChild(img).setAttribute('src', resposta[i].imagem);
 
-                    document.querySelector('#listaProdutos').appendChild(ul);
+                        document.querySelector('#listaProdutos').appendChild(ul);
                     }
                 });
-            
-            }
 
-        </script>
+        }
+
+    </script>
 </body>
 
 </html>
