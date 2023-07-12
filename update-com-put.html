@@ -11,7 +11,7 @@
     <div id="resposta"></div>
     <form action="" method="post">
         <label for="id" :>ID</label>
-        <input type="text" id="id" o    ><br>
+        <input type="text" id="id" o><br>
 
         <label for="descricao">Descrição</label>
         <input type="text" id="descricao"><br>
@@ -28,30 +28,53 @@
 
     </form>
     <div id="listaProdutos"></div>
+
+    <script src="./assets/scripts/scripts.js"></script>
+
+
     <script>
+        // Desafio 1
 
-        function checaInputs(){
-
-            const idPreenchido = document.querySelector('input#id').value !=="";            
-            const descricaoPreenchida = document.querySelector('input#descricao').value !=="";
-            
-    
-        }
-        
-
-        document.addEventListene('click',event =>{
-            if(event.target.classList.contains('produto')){
+        document.addEventListene('click', event => {
+            if (event.target.classList.contains('produto')) {
 
                 const elemento = event.target;
 
-                document.querySelector('input#id').value=elementoBase.querySelector('[data-produto="id"]')
-
-
+                document.querySelector('input#id').value = elementoBase.querySelector('[data-produto="id"]')
+                document.querySelector('input#descricao').value = elementoBase.querySelector('[data-produto="descricao"]')
+                document.querySelector('input#preco').value = elementoBase.querySelector('[data-produto="preco"]')
+                document.querySelector('input#imagem').value = elementoBase.querySelector('[data-produto="imagem"]').getAttribute('src').split("imagens/").pop();
+                
+                checaInputs();
+            }else if (event.target.parantElement.classList.contains('produto')){
+                const elementoBase= event.target.parantElement;
+                
+                document.querySelector('input#id').value = elementoBase.querySelector('[data-produto]"id"').innerHTML;
+                document.querySelector('input#descricao').value = elementoBase.querySelector('[data-produto]"descricao"').innerHTML;
+                document.querySelector('input#preco').value = elementoBase.querySelector('[data-produto]"preco"').innerHTML;
+                document.querySelector('input#imagem').value = elementoBase.querySelector('[data-produto]"imagem"').getAttribute ('src').split("imagens/").pop();
+                
+                checaInputs();
             }
 
         }
 
         )
+        // Desafio 2 
+        function checaInputs() {
+
+            const idPreenchido = document.querySelector('input#id').value !== "";
+            const descricaoPreenchida = document.querySelector('input#descricao').value !== "";
+            const precoPreenchido = document.querySelector('input#preco').value !== "";
+            const imagemPreenchida = document.querySelector('input#imagem').value !== "";
+
+            if(descricaoPreenchida || precoPreenchido || imagemPreenchida || idPreenchido){
+                document.querySelector('button#btnlimpar').removeAttribute('disabled');
+            }
+
+
+        }
+
         function btnDesativado() {
             const id = document.querySelector('#id').value
             if (id) {
