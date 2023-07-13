@@ -2,9 +2,9 @@
   "produtos": [
     {
       "id": 1,
-      "descricao": "Bolsa ",
-      "preco": "50 ",
-      "imagem": "sdgsdag"
+      "descricao": "",
+      "preco": "",
+      "imagem": ""
     },
     {
       "id": 3,

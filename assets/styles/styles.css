@@ -49,11 +49,19 @@ img {
     color: #444;
     text-align: center;
     font-family: Ubuntu;
-    font-size: 18px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 
+}
+button#reset{
+    margin-left:1.2rem;
+}
+
+button#btnAtualizar{
+    margin-left:2.4rem;
+    margin-top:1.5rem;
 }
 
 #reset:hover {
@@ -97,17 +105,17 @@ header h1 {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding-top: 22px;
 }
 
 form {
     margin: auto;
-    width: 420px;
-    height: 439px;
+    width: 410px;
+    height: 480px;
     flex-shrink: 0;
     border-radius: 12px;
     background: #FFF;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 0 57px 0 59px;
 }
 
 label {
@@ -136,11 +144,13 @@ input {
     flex-shrink: 0;
     border-bottom: 1px solid #000;
     background: #FFF;
+
 }
 
 .caixas-form {
     display: flex;
     flex-direction: column;
+    padding-left: 2.5rem;
 
 }
 

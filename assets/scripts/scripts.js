@@ -15,7 +15,7 @@ function getProdutos() {
         .then(resposta => resposta.json())
         .then(resposta => {
 
-            document.querySelector('#listaProdutos').innerHTML = "";
+            document.querySelector('#listaProdutos').innerHTML = "Lista de produto";
 
             for (let i = 0; i < resposta.length; i++) {
 
