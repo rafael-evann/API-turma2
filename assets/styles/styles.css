@@ -1,3 +1,7 @@
+:root {
+    background: #FEFFE4;
+}
+
 img {
     Height: 50px;
     width: 50px;
@@ -7,10 +11,32 @@ img {
 #btnAtualizar {
     width: 167px;
     height: 46px;
-    flex-shrink: 0;
     border-radius: 4px;
     background: #48A4FA;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#btnAtualizar:hover {
+    border-radius: 4px;
+    background: #007BED;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 167px;
+    height: 46px;
+}
+
+#btnAtualizar:active {
+    width: 167px;
+    height: 46px;
+    border-radius: 4px;
+    background: #007BED;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 #reset {
@@ -20,6 +46,30 @@ img {
     border-radius: 4px;
     background: #F59999;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #444;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+#reset:hover {
+    width: 118px;
+    height: 46px;
+    border-radius: 4px;
+    background: #FF5F5F;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#reset:active {
+    border-radius: 4px;
+    background: #FF5F5F;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    width: 118px;
+    height: 46px;
 }
 
 header h1 {
@@ -57,6 +107,7 @@ form {
     border-radius: 12px;
     background: #FFF;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 57px 0 59px;
 }
 
 label {
@@ -87,9 +138,21 @@ input {
     background: #FFF;
 }
 
-.caixas-form{
+.caixas-form {
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+
 }
 
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #000;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
