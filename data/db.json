@@ -2,9 +2,9 @@
   "produtos": [
     {
       "id": 1,
-      "descricao": "",
-      "preco": "",
-      "imagem": ""
+      "descricao": "bolo ",
+      "preco": "20",
+      "imagem": "bolo/bolo-choco.img"
     },
     {
       "id": 3,
