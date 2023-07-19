@@ -2,15 +2,71 @@
     background: #FEFFE4;
 }
 
-#listaProdutos{
+:root {
+    --cor-fundo: #fff;
+}
+
+.menu-pagina{
+    text-decoration: none;  
+      
+}
+
+[data-theme='dark'] {
+    --cor-fundo: #545454;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    transition: background .5s;
+}
+
+.bts.bts-base {
+    margin: auto;
+    padding: 0;
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    /* hackzinho*/
+    transition: all .5s;
+}
+
+.bts-base.light {
+    background: #545454;
+}
+
+.bts-base.dark {
+    background: #d9d9d9;
+}
+
+.bts-slider {
+    margin: 5px;
+    padding: 0;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.bts-slider.light {
+    background: #d9d9d9;
+    transition: all .5s;
+}
+
+.bts-slider.dark {
+    background: #545454;
+    transform: translateX(50px);
+    transition: all .5s;
+}
+
+#listaProdutos {
     display: flex;
-    flex-direction:column; 
+    flex-direction: column;
     width: 100%;
     padding: 0 3.4rem;
     margin-bottom: 5.7rem;
 }
 
-.produto{
+.produto {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -21,6 +77,7 @@
     margin-bottom: .25rem;
     padding: .8rem 0;
 }
+
 .produto:nth-child(even) {
     background: #fff;
 }
@@ -28,6 +85,7 @@
 .produto:nth-child(odd) {
     background: #fff1c1;
 }
+
 .produto li:nth-child(2) {
     text-align: start;
     margin-left: 2.4rem;
@@ -102,13 +160,14 @@ img {
     line-height: normal;
 
 }
-button#reset{
-    margin-left:1.2rem;
+
+button#reset {
+    margin-left: 1.2rem;
 }
 
-button#btnAtualizar{
-    margin-left:2.4rem;
-    margin-top:1.5rem;
+button#btnAtualizar {
+    margin-left: 2.4rem;
+    margin-top: 1.5rem;
 }
 
 #reset:hover {

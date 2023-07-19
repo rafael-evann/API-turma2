@@ -8,73 +8,46 @@
 </head>
 
 <body>
+    <header class="menu-paginas">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./create-com-post.html">Create</a></li>
+        <li><a href="./delete-com-delete.html">Deletar</a></li>
+        <li><a href="./update-com-put2.html">Atualizar</a></li>
+
+        <div id="btn-slider" class="bts bts-base">
+            <div class="bts bts-slider"></div>
+        </div>
+    </header>
+    <script src="./assets/scripts/botao-slider.js"></script>
+
     <div id="resposta"></div>
     <form action="" method="post">
-        <label for="id":>ID</label>
-        <input type="text" id="id" disabled><br>
 
-        <label for="descricao">Descrição</label>
-        <input type="text" id="descricao"><br>
+        <h1 id="alteração-produtos-form">Inserir produtos</h1>
+        <div class="caixas-form">
+            <label for="id">ID:</label>
+            <input type="text" id="id" placeholder="digite o ID do produto"><br>
+        </div>
+        <div class="caixas-form">
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" placeholder="digite a descrição do produto"><br>
+        </div>
 
-        <label for="preco">Preço</label>
-        <input type="text" id="preco"><br>
+        <div class="caixas-form">
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" placeholder="digite o preço do produto"><br>
+        </div>
 
-        <label for="imagem">Imagem</label>
-        <input type="text" id="imagem"><br>
-    </form> 
-    
-        <button type="button" id="btnCadastrar">Cadastrar</button>
-        <script>
-            document.querySelector('#btnCadastrar').addEventListener('click', () => {
-                const dados = {
-                    'id': null,
-                    'descricao': document.querySelector("#descricao").value,
-                    'preco': document.querySelector('#preco').value,
-                    'imagem': document.querySelector('#imagem').value
-                };
+        <div class="caixas-form">
+            <label for="imagem">Imagem:</label>
+            <input type="text" id="imagem" placeholder="digite aimagem do produto"><br>
+        </div>
 
-                fetch('http://localhost:3000/produtos', {
-                    method: 'POST',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(dados)
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            document.querySelector('#resposta').innerHTML =
-                                'Produto cadastrado!'
-                        }
-                    })
-                getProdutos();
-            });
-            function getProdutos() {
-                fetch('http://localhost:3000/produtos', {
-                    method: 'GET',
-                    headers: {
-                        'Content-type': 'application/json'
-                    }
-                })
-                .then(resposta => resposta.json())
-                .then(resposta => {
-
-                document.querySelector('#resposta').innerHTML="";
-
-                    for (let i = 0; i < resposta.length; i++) {
-
-                        const ul = document.createElement("ul");
-                        const img = document.createElement('img');
-
-                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
-                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
-                        ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
-                        ul.appendChild(document.createElement('li')).appendChild (img).setAttribute('src',resposta[i].imagem) ;
-
-                    document.querySelector('#resposta').appendChild(ul);
-                    }
-                });
-            }
-        </script>
+        <button type="button" id="btnAtualizar" disabled>Atualizar</button>
+        <button type="reset" id="reset" disabled>Cancelar</button>
+    </form>
+    <script src="./assets/scripts/scripts.js"></script>
+    <script src="./assets/scripts/botao-slider.js"></script>
 </body>
 
 </html>

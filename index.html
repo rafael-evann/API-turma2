@@ -8,6 +8,17 @@
 </head>
 
 <body>
+    <header class="menu-paginas">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./create-com-post.html">Create</a></li>
+        <li><a href="./delete-com-delete.html">Deletar</a></li>
+        <li><a href="./update-com-put2.html">Atualizar</a></li>  
+       
+        <div id="btn-slider" class="bts bts-base">
+            <div class="bts bts-slider"></div>
+        </div>
+        <h1>Update com PUT</h1>
+    </header>
     <h1>Requisição e repostas via API</h1>
     <button type="button" id="btnFetch">Fetch</button>
     <div id="resposta"></div>
@@ -15,6 +26,7 @@
     <div id="listaProdustos">
         <script src="./assets/scripts/scripts.js"></script>
         <script>src = "./assets/scripts/pagina.js "</script>
+        <script src="./assets/scripts/botao-slider.js"></script>
 
         <script>
             fetch('http://localhost:3000/produtos', {

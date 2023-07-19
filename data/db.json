@@ -1,16 +1,10 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "descricao": "bolo ",
-      "preco": "20",
-      "imagem": "bolo/bolo-choco.img"
-    },
-    {
-      "id": 3,
-      "descricao": "Mesa ",
-      "preco": "400",
-      "imagem": "./assets/imagens/mesa.jpg"
+      "id": 2,
+      "descricao": "chinelo ",
+      "preco": "52",
+      "imagem": "dfgasdf"
     }
   ]
 }
