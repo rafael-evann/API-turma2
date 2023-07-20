@@ -1,6 +1,6 @@
 function getProdutos(btDelete = false) {
 
-    fetch('http://localhost:3000/produtos', {
+    fetch('https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos', {
         method: 'GET',
         headers: {
             'Content-type': 'application/json'
@@ -11,7 +11,7 @@ function getProdutos(btDelete = false) {
 
             const listaProdutos = document.querySelector('#listaProdutos');
             listaProdutos.innerHTML = "";
-            listaProdutos.classList.add('lista-produtos');
+            listaProdutos.classList.add('listaProdutos');
 
             const tituloLista = document.createElement('h2');
             tituloLista.innerHTML = 'Lista de Produtos';

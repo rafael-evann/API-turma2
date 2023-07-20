@@ -17,10 +17,10 @@
         <div id="btn-slider" class="bts bts-base">
             <div class="bts bts-slider"></div>
         </div>
+        <h1>Create com post</h1>
     </header>
-    <script src="./assets/scripts/botao-slider.js"></script>
 
-    <div id="resposta"></div>
+    <div class="resposta" id="resposta"></div>
     <form action="" method="post">
 
         <h1 id="alteração-produtos-form">Inserir produtos</h1>
@@ -43,11 +43,14 @@
             <input type="text" id="imagem" placeholder="digite aimagem do produto"><br>
         </div>
 
-        <button type="button" id="btnAtualizar" disabled>Atualizar</button>
-        <button type="reset" id="reset" disabled>Cancelar</button>
+        <button type="button" class="bt-cadastrar" id="btnCadastrar">Cadastrar</button>
+        <button type="reset" id="reset" disabled>Limpar</button>
     </form>
+
+    <div id="listaProdutos"></div>
     <script src="./assets/scripts/scripts.js"></script>
     <script src="./assets/scripts/botao-slider.js"></script>
+    <script type="module" src="./assets/scripts/create-com-post.js"></script>
 </body>
 
 </html>

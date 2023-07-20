@@ -69,7 +69,7 @@ document.querySelector('#btnAtualizar').addEventListener('click', () => {
         'imagem': document.querySelector('#imagem').value
     };
 
-    fetch(`http://localhost:3000/produtos/${id}`, {
+    fetch(`https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos${id}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'

@@ -1,4 +1,5 @@
-import { getProdutos } from "./read-com-get";
+import { getProdutos } from "./read-com-get.js";
+getProdutos();
 
 document.querySelector('#btnCadastrar').addEventListener('click', () => {
     const dados = {
@@ -8,7 +9,7 @@ document.querySelector('#btnCadastrar').addEventListener('click', () => {
         'imagem': document.querySelector('#imagem').value
     };
 
-    fetch('http://localhost:3000/produtos', {
+    fetch('https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
@@ -23,29 +24,4 @@ document.querySelector('#btnCadastrar').addEventListener('click', () => {
         })
     getProdutos();
 });
-function getProdutos() {
-    fetch('http://localhost:3000/produtos', {
-        method: 'GET',
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
-        .then(resposta => resposta.json())
-        .then(resposta => {
 
-            document.querySelector('#resposta').innerHTML = "";
-
-            for (let i = 0; i < resposta.length; i++) {
-
-                const ul = document.createElement("ul");
-                const img = document.createElement('img');
-
-                ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
-                ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
-                ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
-                ul.appendChild(document.createElement('li')).appendChild(img).setAttribute('src', resposta[i].imagem);
-
-                document.querySelector('#resposta').appendChild(ul);
-            }
-        });
-}

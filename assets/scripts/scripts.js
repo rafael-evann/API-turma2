@@ -28,7 +28,7 @@ fontUbuntu.href = 'https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,3
 document.head.append(reset, style, googleapis, gstatic, fontUbuntu);
 function getProdutos(btnDelete = false) {
 
-    fetch('http://localhost:3000/produtos/', {
+    fetch('https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos', {
         method: 'GET',
         headers: {
             'Content-type': 'application/json'

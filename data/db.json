@@ -1,10 +1,16 @@
 {
   "produtos": [
     {
+      "id": 1,
+      "descricao": "bolo ",
+      "preco": "60 ",
+      "imagem": "fdgdsfg"
+    },
+    {
       "id": 2,
-      "descricao": "chinelo ",
-      "preco": "52",
-      "imagem": "dfgasdf"
+      "descricao": "fdsg",
+      "preco": "dfsg",
+      "imagem": "dfg"
     }
   ]
 }

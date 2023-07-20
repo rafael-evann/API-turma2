@@ -1,4 +1,4 @@
-import { getProdutos } from "./read-com-get";
+import { getProdutos } from "./read-com-get.js";
 
 getProdutos(true);
 
@@ -7,7 +7,7 @@ document.querySelector('#btConfirmar').addEventListener('click', () => {
 
     checkboxesProdutos.forEach(checkbox => {
         if (checkbox.checked) {
-            fetch(`https://json-server-vercel-taupe.vercel.app/produtos/${checkbox.value}`, {
+            fetch(`https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos${checkbox.value}`, {
                 method: 'DELETE'
             });
         }
