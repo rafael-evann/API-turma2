@@ -1,16 +1,3 @@
 {
-  "produtos": [
-    {
-      "id": 1,
-      "descricao": "bolo ",
-      "preco": "60 ",
-      "imagem": "fdgdsfg"
-    },
-    {
-      "id": 2,
-      "descricao": "fdsg",
-      "preco": "dfsg",
-      "imagem": "dfg"
-    }
-  ]
+  "produtos": []
 }

@@ -7,7 +7,7 @@ document.querySelector('#btConfirmar').addEventListener('click', () => {
 
     checkboxesProdutos.forEach(checkbox => {
         if (checkbox.checked) {
-            fetch(`https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos${checkbox.value}`, {
+            fetch(`https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos/${checkbox.value}`, {
                 method: 'DELETE'
             });
         }
@@ -21,7 +21,7 @@ document.addEventListener('click', event => {
 
     if (event.target.classList.contains('botao-delete')) {
 
-        fetch(`http://localhost:3000/produtos/${event.target.value}`, {
+        fetch(`https://json-sever-p1xz9vafq-rafael-evann.vercel.app/produtos/${event.target.value}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'application/json'
@@ -31,6 +31,8 @@ document.addEventListener('click', event => {
                 if (resposta.ok) {
                     alert('Produto apagado!');
                     getProdutos(true);
+                }else{
+                    location.reload();
                 }
             });
 

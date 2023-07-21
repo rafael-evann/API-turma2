@@ -8,19 +8,24 @@
 </head>
 
 <body>
-    <header class="menu-paginas">
-        <li><a href="./index.html">Inicio</a></li>
-        <li><a href="./create-com-post.html">Create</a></li>
-        <li><a href="./delete-com-delete.html">Deletar</a></li>
-        <li><a href="./">Atualizar</a></li>  
-       
-        <div id="btn-slider" class="bts bts-base">
-            <div class="bts bts-slider"></div>
-        </div>
+    <header>
+        <nav>
+            <div class="header-link">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./create-com-post.html">Create</a></li>
+                <li><a href="./delete-com-delete.html">Deletar</a></li>
+                <li><a href="./update-com-put2.html">Atualizar</a></li>
+
+                <div class="bt-troca-de-tema">tema da pagina</div>
+                <div id="btn-slider" class="bts bts-base">
+                    <div class="bts bts-slider"></div>
+                </div>
+            </div>
+        </nav>
     </header>
     <div id="resposta"></div>
     <form action="" method="post">
-        <label for="id":>ID</label>
+        <label for="id" :>ID</label>
         <input type="text" id="id"><br>
 
         <label for="descricao">Descrição</label>
@@ -36,42 +41,42 @@
 
     </form>
     <div id="listaProdutos"></div>
-        <script>
-            document.querySelector('#btnAtualizar').addEventListener('click', () => {
-                const id = document.querySelector('#id').value;
-                const dados = {
-                    'id': null,
-                    'descricao': document.querySelector("#descricao").value,
-                    'preco': document.querySelector('#preco').value,
-                    'imagem': document.querySelector('#imagem').value
-                };
+    <script>
+        document.querySelector('#btnAtualizar').addEventListener('click', () => {
+            const id = document.querySelector('#id').value;
+            const dados = {
+                'id': null,
+                'descricao': document.querySelector("#descricao").value,
+                'preco': document.querySelector('#preco').value,
+                'imagem': document.querySelector('#imagem').value
+            };
 
-                fetch(`http://localhost:3000/produtos/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(dados)
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            document.querySelector('#resposta').innerHTML =
-                                'produto atualizado!';
-                        }
-                    })
-                getProdutos();
-            });
-            function getProdutos() {
-                fetch('http://localhost:3000/produtos', {
-                    method: 'GET',
-                    headers: {
-                        'Content-type': 'application/json'
+            fetch(`http://localhost:3000/produtos/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        document.querySelector('#resposta').innerHTML =
+                            'produto atualizado!';
                     }
                 })
+            getProdutos();
+        });
+        function getProdutos() {
+            fetch('http://localhost:3000/produtos', {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
                 .then(resposta => resposta.json())
                 .then(resposta => {
 
-                document.querySelector('#listaProdutos').innerHTML="";
+                    document.querySelector('#listaProdutos').innerHTML = "";
 
                     for (let i = 0; i < resposta.length; i++) {
 
@@ -81,14 +86,14 @@
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
                         ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
-                        ul.appendChild(document.createElement('li')).appendChild (img).setAttribute('src',resposta[i].imagem) ;
+                        ul.appendChild(document.createElement('li')).appendChild(img).setAttribute('src', resposta[i].imagem);
 
-                    document.querySelector('#listaProdutos').appendChild(ul);
+                        document.querySelector('#listaProdutos').appendChild(ul);
                     }
                 });
-            
-            }
-        </script>
+
+        }
+    </script>
 </body>
 
 </html>

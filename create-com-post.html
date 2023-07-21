@@ -8,16 +8,20 @@
 </head>
 
 <body>
-    <header class="menu-paginas">
-        <li><a href="./index.html">Inicio</a></li>
-        <li><a href="./create-com-post.html">Create</a></li>
-        <li><a href="./delete-com-delete.html">Deletar</a></li>
-        <li><a href="./update-com-put2.html">Atualizar</a></li>
+    <header>
+        <nav>
+            <div class="header-link">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./create-com-post.html">Create</a></li>
+                <li><a href="./delete-com-delete.html">Deletar</a></li>
+                <li><a href="./update-com-put2.html">Atualizar</a></li>
 
-        <div id="btn-slider" class="bts bts-base">
-            <div class="bts bts-slider"></div>
-        </div>
-        <h1>Create com post</h1>
+                <div class="bt-troca-de-tema">tema da pagina</div>
+                <div id="btn-slider" class="bts bts-base">
+                    <div class="bts bts-slider"></div>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <div class="resposta" id="resposta"></div>
@@ -26,7 +30,7 @@
         <h1 id="alteração-produtos-form">Inserir produtos</h1>
         <div class="caixas-form">
             <label for="id">ID:</label>
-            <input type="text" id="id" placeholder="digite o ID do produto"><br>
+            <input type="text" id="id" placeholder="digite o ID do produto" disabled><br>
         </div>
         <div class="caixas-form">
             <label for="descricao">Descrição:</label>

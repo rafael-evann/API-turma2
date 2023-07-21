@@ -20,8 +20,11 @@ document.querySelector('#btnCadastrar').addEventListener('click', () => {
             if (response.ok) {
                 document.querySelector('#resposta').innerHTML =
                     'Produto cadastrado!'
+                getProdutos();    
+            } else {
+                location.reload();
             }
         })
-    getProdutos();
+    
 });
 
