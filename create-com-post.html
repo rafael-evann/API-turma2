@@ -24,7 +24,7 @@
         </nav>
     </header>
 
-    <div class="resposta" id="resposta"></div>
+    <div id="resposta"></div>
     <form action="" method="post">
 
         <h1 id="alteração-produtos-form">Inserir produtos</h1>
@@ -47,13 +47,17 @@
             <input type="text" id="imagem" placeholder="digite aimagem do produto"><br>
         </div>
 
-        <button type="button" class="bt-cadastrar" id="btnCadastrar">Cadastrar</button>
-        <button type="reset" id="reset" disabled>Limpar</button>
+        <div class="botao">
+            <button type="button" class="bt-cadastrar" id="btnCadastrar" disabled>Cadastrar</button>
+            <button type="reset" id="reset" disabled>Limpar</button>
+        </div>
     </form>
 
     <div id="listaProdutos"></div>
+
     <script src="./assets/scripts/scripts.js"></script>
     <script src="./assets/scripts/botao-slider.js"></script>
+
     <script type="module" src="./assets/scripts/create-com-post.js"></script>
 </body>
 
